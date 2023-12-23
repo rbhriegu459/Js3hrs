@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Store</title>
+  </head>
+  <body>
+    <header>
+      <h1>General Daily Needs</h1>
+    </header>
+
+    <section class="container">
+      <form action="/addData" method="post" id="my-form" name="my-form" >
+        <h1>Add Item -</h1>
+
+        <label for="name">name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="description">Description:</label>
+        <input type="text" id="description" name="description" required>
+
+        <label for="Price">Price:</label>
+        <input type="number" id="Price" name="Price" required>
+
+        <label for="Quantity">Quantity:</label>
+        <input type="number" id="Quantity" name="Quantity" required>
+
+        <button type="submit">Add Item</button>
+        
+      </form>
+
+    </section>
+
+    <!-- <div class="list-container">
+      <h2 class="h2-head">LIST OF ITEMS</h2>
+        <ul id="items">
+        </ul>
+    </div> -->
+
+    <ul id="itemList">
+      <% expenses.forEach(expense => { %>
+        <li><%= expense.name %> - <%= expense.description %> - <%= expense.Price %> - <%= expense.Quantity %>- <form action="/buy1/<%= expense.id%>" method="get"><button type="submit" class="buy1">Buy-1</button></form>
+        </li>
+      <% }); %>
+    </ul>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.2/axios.min.js" integrity="sha512-b94Z6431JyXY14iSXwgzeZurHHRNkLt9d6bAHt7BZT38eqV+GyngIi/tVye4jBKPYQ2lBdRs0glww4fmpuLRwA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- <script src="./public/js/main.js"></script> -->
+  </body>
+</html>
