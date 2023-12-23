@@ -52,4 +52,30 @@ app.get('/buy1/:id', (req,res) => {
     })
 })
 
+app.get('/buy2/:id', (req,res) => {
+    const id = req.params.id;
+    const currentQuantity = db.query("SELECT Quantity FROM ration WHERE id = ?", id, (err, result) =>{
+        if(err) console.log(err);
+        console.log(result);
+    });
+    // console.log(currentQuantity);
+    db.query("UPDATE ration SET Quantity = ? WHERE id= ?", (currentQuantity-2, id), (err, result)=>{
+        if(err) console.log(err);
+        res.redirect('/');
+    })
+})
+
+app.get('/buy3/:id', (req,res) => {
+    const id = req.params.id;
+    const currentQuantity = db.query("SELECT Quantity FROM ration WHERE id = ?", id, (err, result) =>{
+        if(err) console.log(err);
+        console.log(result);
+    });
+    // console.log(currentQuantity);
+    db.query("UPDATE ration SET Quantity = ? WHERE id= ?", (currentQuantity-3, id), (err, result)=>{
+        if(err) console.log(err);
+        res.redirect('/');
+    })
+})
+
 app.listen(4000);

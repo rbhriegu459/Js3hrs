@@ -42,6 +42,8 @@
     <ul id="itemList">
       <% expenses.forEach(expense => { %>
         <li><%= expense.name %> - <%= expense.description %> - <%= expense.Price %> - <%= expense.Quantity %>- <form action="/buy1/<%= expense.id%>" method="get"><button type="submit" class="buy1">Buy-1</button></form>
+          <form action="/buy2/<%= expense.id%>" method="get"><button type="submit" class="buy2">Buy-2</button></form>
+          <form action="/buy3/<%= expense.id%>" method="get"><button type="submit" class="buy3">Buy-3</button></form>
         </li>
       <% }); %>
     </ul>
